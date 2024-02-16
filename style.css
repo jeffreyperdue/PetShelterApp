@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;700&display=swap');
+
+html body {
+    font-family: 'Source Sans Pro';
+    font-weight: 500;
+    overflow-x: hidden;
+}
+
+#title, .title {
+    font-weight: 700 !important ;
+    color: black;
+}
+
+a #title:hover, .title:hover {
+    color: #5656ad;
+}
+
+.card-body.about-me {
+    min-height: 8em;
+}
+
+.card-body {
+    width: 94%;
+}
+
+.radio-label {
+    margin-right: .5em;
+}
+.radio-label input {
+    margin-right: .2em;
+}
+
+.col-lg-4 {
+    margin-bottom: 5px;
+}
+
+.card-img-top {
+    height: 15vmax;
+    object-fit: cover;
+}
+
+.card {
+    width: 24vmax;
+    margin: auto;
+}
+
+.card.more-info {
+    width: 40em;
+}
+
+.card-max {
+    width: 100%;
+}
+
+.age {
+    width: 2.5em;
+    height: 2.5em;
+}
+
+.row .col {
+    margin-top: 1em;
+}
