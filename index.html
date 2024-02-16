@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>ASE 220 Pet Rescue</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h1 id="title" class="display-4 text-center my-4">ASE 220 Pet Rescue</h1>
+            </div>
+            <div class="col-6 text-end mt-2">
+                <button type="button" class="btn btn-primary my-4" id="addpetButton" data-bs-toggle="modal" data-bs-target="#addpetModal">Add pet</button>
+            </div>
+        </div>
+        <div class="row" id="cards-container">
+        </div>
+        <div class="text-center mt-4">
+            <button id="load-more" class="btn btn-primary">Load More</button>
+        </div>
+    </div>
+    <div class="container">
+        <a href="https://www.vecteezy.com/free-vector/age">Age Vectors by Vecteezy</a>
+    </div>
+
+    <!-- Add Pet Modal -->
+    <div class="modal fade" id="addpetModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Pet</h5>
+                    <button type="button" class="btn-close" id="btn-pet-add-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="add-pet-form">
+                        <div class="mb-3">
+                            <label for="add-pet-name" class="form-label">Pet Name</label>
+                            <input type="text" class="form-control" id="add-pet-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-pet-type" class="form-label">Pet Type</label>
+                            <input type="text" class="form-control" id="add-pet-type">
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-pet-breed" class="form-label">Pet Breed</label>
+                            <input type="text" class="form-control" id="add-pet-breed">
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-pet-age" class="form-label">Pet Age</label>
+                            <input type="number" class="form-control" id="add-pet-age">
+                        </div>
+                        <div class="mb-3">
+                            <label style="display: block;" for="add-pet-gender-male" class="form-label">Pet Gender</label>
+                            <label class="radio-label"><input type="radio" name="add-pet-gender" id="add-pet-gender-male" value="Male">Male</label>
+                            <label class="radio-label"><input type="radio" name="add-pet-gender" id="add-pet-gender-female" value="Female">Female</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="add-pet-desc" class="form-label">About Your Pet</label>
+                            <textarea class="form-control" id="add-pet-desc" rows="3"></textarea>
+                        </div>
+                        <button id="btn-pet-add" type="button" class="btn btn-primary">Add pet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Pet Modal -->
+    <div class="modal fade" id="editPetModal" tabindex="-1" aria-labelledby="editPetModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editPetModalLabel">Edit Pet</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="edit-pet-form">
+                        <div class="mb-3">
+                            <label for="edit-pet-name" class="form-label">Pet Name</label>
+                            <input type="text" class="form-control" id="edit-pet-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-pet-type" class="form-label">Pet Type</label>
+                            <input type="text" class="form-control" id="edit-pet-type">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-pet-breed" class="form-label">Pet Breed</label>
+                            <input type="text" class="form-control" id="edit-pet-breed">
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-pet-age" class="form-label">Pet Age</label>
+                            <input type="text" class="form-control" id="edit-pet-age">
+                        </div>
+                        <div class="mb-3">
+                            <label style="display: block;" for="edit-pet-gender-male" class="form-label">Pet Gender</label>
+                            <label for="edit-pet-gender-male" class="radio-label"><input type="radio" name="edit-pet-gender" id="edit-pet-gender-male" value="Male">Male</label>
+                            <label for="edit-pet-gender-female" class="radio-label"><input type="radio" name="edit-pet-gender" id="edit-pet-gender-female" value="Female">Female</label>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-pet-desc" class="form-label">About Your Pet</label>
+                            <textarea class="form-control" id="edit-pet-desc" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-pet-changes">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animal Details Modal -->
+    <div class="modal fade" id="animal_modal" tabindex="-1" aria-labelledby="animalModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="animalModalLabel">Pet Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Details will be filled in by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="data.js"></script>
+    <script>
+        loadIndex();
+    </script>
+</body>
+</html>
