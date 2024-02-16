@@ -1,4 +1,4 @@
-# ASE 220 - Assignment: 03 - A pet shelter management application
+# ASE 220 - A pet shelter management application
 
 
 ## Assignment 2
